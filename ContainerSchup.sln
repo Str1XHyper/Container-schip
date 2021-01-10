@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerSchup", "ContainerSchup\ContainerSchup.csproj", "{22F2E2B0-967F-4295-A5B5-ADC314D182EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{84DB6665-502D-487D-AEB6-03723934796D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22F2E2B0-967F-4295-A5B5-ADC314D182EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F2E2B0-967F-4295-A5B5-ADC314D182EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F2E2B0-967F-4295-A5B5-ADC314D182EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F2E2B0-967F-4295-A5B5-ADC314D182EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84DB6665-502D-487D-AEB6-03723934796D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84DB6665-502D-487D-AEB6-03723934796D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84DB6665-502D-487D-AEB6-03723934796D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84DB6665-502D-487D-AEB6-03723934796D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A0F21FE-9426-470A-83F1-8076E223648F}
+	EndGlobalSection
+EndGlobal
