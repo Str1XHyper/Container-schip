@@ -19,6 +19,8 @@ namespace ContainerSchup
         {
             InitializeComponent();
             ship = new Ship((int)LengthNUM.Value, (int)WidthNUM.Value);
+            CurrentWeightTB.Text = ship.WeightOfAllContainers.ToString();
+            MinimumWeightTB.Text = ship.MinWeight.ToString();
         }
 
         private void AddContainerBTN_Click(object sender, EventArgs e)
@@ -32,10 +34,12 @@ namespace ContainerSchup
                     {
                         containers.Add(new Logic.Container(ContainerType.CooledValueble));
                     }
-                }
-                for (int i = 0; i < AmountOfContainersNUM.Value; i++)
+                } else
                 {
-                    containers.Add(new Logic.Container(ContainerType.Valueble));
+                    for (int i = 0; i < AmountOfContainersNUM.Value; i++)
+                    {
+                        containers.Add(new Logic.Container(ContainerType.Valueble));
+                    }
                 }
             } else if (CooledCB.Checked)
             {
@@ -52,6 +56,7 @@ namespace ContainerSchup
             }
             ship.AddContainers(containers);
             reloadListBox();
+            CurrentWeightTB.Text = ship.WeightOfAllContainers.ToString();
         }
         private void reloadListBox()
         {
@@ -62,21 +67,22 @@ namespace ContainerSchup
             }
         }
 
-
-        private void LengthNUM_ValueChanged(object sender, EventArgs e)
+        private void ShipSizeChanged(object sender, EventArgs e)
         {
-            ship.Length = (int)LengthNUM.Value;
-        }
-
-        private void WidthNUM_ValueChanged(object sender, EventArgs e)
-        {
-            ship.Width = (int)WidthNUM.Value;
+            ship.ChangeShipSize((int)LengthNUM.Value, (int)WidthNUM.Value);
+            MinimumWeightTB.Text = ship.MinWeight.ToString();
         }
 
         private void VisualizeBTN_Click(object sender, EventArgs e)
         {
-            ship.DistributeContainers();
-            OpenVisualizer();
+            try
+            {
+                ship.DistributeContainers();
+                OpenVisualizer();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void OpenVisualizer()
         {

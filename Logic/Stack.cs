@@ -30,11 +30,11 @@ namespace Logic
 
         public bool AddContainerToStack(Container container)
         {
-            if(containers.Count >= MaxHeight || Reserved || (container.ContainerType == ContainerType.Cooled && IndexInRow != 0) || (CurrentWeight + container.Weight) > MaxWeight)
+            if(containers.Count >= MaxHeight || Reserved || ((container.ContainerType == ContainerType.Cooled || container.ContainerType == ContainerType.CooledValueble) && IndexInRow != 0) || (CurrentWeight + container.Weight) > MaxWeight)
             {
                 return false;
             }
-            if(container.ContainerType == ContainerType.Valueble)
+            if(container.ContainerType == ContainerType.Valueble || container.ContainerType == ContainerType.CooledValueble)
             {
                 if (containers.Count == 0)
                 {
@@ -42,7 +42,7 @@ namespace Logic
                 }
                 else
                 {
-                    if(!(containers[containers.Count-1].ContainerType == ContainerType.Valueble))
+                    if(!(containers[containers.Count-1].ContainerType == ContainerType.Valueble) && !(containers[containers.Count - 1].ContainerType == ContainerType.CooledValueble))
                     {
                         containers.Add(container);
                     } else

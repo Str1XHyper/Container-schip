@@ -38,7 +38,7 @@ namespace Logic
             {
                 if (stacks[i].AddContainerToStack(container))
                 {
-                    if (container.ContainerType == ContainerType.Valueble)
+                    if (container.ContainerType == ContainerType.Valueble || container.ContainerType == ContainerType.CooledValueble)
                     {
                         if (!stacks[i].IsFront && !stacks[i].IsBack)
                         {

@@ -36,9 +36,13 @@
             this.AmountOfContainersNUM = new System.Windows.Forms.NumericUpDown();
             this.CooledCB = new System.Windows.Forms.CheckBox();
             this.ValuebleCB = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.AmountOfContainerLBL = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.AddContainerBTN = new System.Windows.Forms.Button();
+            this.MinimumWeightTB = new System.Windows.Forms.TextBox();
+            this.MinWeightLBL = new System.Windows.Forms.Label();
+            this.CurrentWeightTB = new System.Windows.Forms.TextBox();
+            this.CurrentWeightLBL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNUM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthNUM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountOfContainersNUM)).BeginInit();
@@ -65,7 +69,7 @@
             0,
             0,
             0});
-            this.LengthNUM.ValueChanged += new System.EventHandler(this.LengthNUM_ValueChanged);
+            this.LengthNUM.ValueChanged += new System.EventHandler(this.ShipSizeChanged);
             // 
             // LengthLBL
             // 
@@ -97,7 +101,7 @@
             0,
             0,
             0});
-            this.WidthNUM.ValueChanged += new System.EventHandler(this.WidthNUM_ValueChanged);
+            this.WidthNUM.ValueChanged += new System.EventHandler(this.ShipSizeChanged);
             // 
             // WidthLBL
             // 
@@ -150,14 +154,14 @@
             this.ValuebleCB.Text = "Valueble";
             this.ValuebleCB.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // AmountOfContainerLBL
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 196);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Amount of containers:";
+            this.AmountOfContainerLBL.AutoSize = true;
+            this.AmountOfContainerLBL.Location = new System.Drawing.Point(9, 196);
+            this.AmountOfContainerLBL.Name = "AmountOfContainerLBL";
+            this.AmountOfContainerLBL.Size = new System.Drawing.Size(110, 13);
+            this.AmountOfContainerLBL.TabIndex = 10;
+            this.AmountOfContainerLBL.Text = "Amount of containers:";
             // 
             // listBox1
             // 
@@ -177,14 +181,52 @@
             this.AddContainerBTN.UseVisualStyleBackColor = true;
             this.AddContainerBTN.Click += new System.EventHandler(this.AddContainerBTN_Click);
             // 
+            // MinimumWeightTB
+            // 
+            this.MinimumWeightTB.Enabled = false;
+            this.MinimumWeightTB.Location = new System.Drawing.Point(493, 41);
+            this.MinimumWeightTB.Name = "MinimumWeightTB";
+            this.MinimumWeightTB.Size = new System.Drawing.Size(100, 20);
+            this.MinimumWeightTB.TabIndex = 13;
+            // 
+            // MinWeightLBL
+            // 
+            this.MinWeightLBL.AutoSize = true;
+            this.MinWeightLBL.Location = new System.Drawing.Point(490, 25);
+            this.MinWeightLBL.Name = "MinWeightLBL";
+            this.MinWeightLBL.Size = new System.Drawing.Size(85, 13);
+            this.MinWeightLBL.TabIndex = 14;
+            this.MinWeightLBL.Text = "Minimum weight:";
+            // 
+            // CurrentWeightTB
+            // 
+            this.CurrentWeightTB.Enabled = false;
+            this.CurrentWeightTB.Location = new System.Drawing.Point(493, 91);
+            this.CurrentWeightTB.Name = "CurrentWeightTB";
+            this.CurrentWeightTB.Size = new System.Drawing.Size(100, 20);
+            this.CurrentWeightTB.TabIndex = 15;
+            // 
+            // CurrentWeightLBL
+            // 
+            this.CurrentWeightLBL.AutoSize = true;
+            this.CurrentWeightLBL.Location = new System.Drawing.Point(490, 75);
+            this.CurrentWeightLBL.Name = "CurrentWeightLBL";
+            this.CurrentWeightLBL.Size = new System.Drawing.Size(78, 13);
+            this.CurrentWeightLBL.TabIndex = 16;
+            this.CurrentWeightLBL.Text = "Current weight:";
+            // 
             // CreateShip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 409);
+            this.Controls.Add(this.CurrentWeightLBL);
+            this.Controls.Add(this.CurrentWeightTB);
+            this.Controls.Add(this.MinWeightLBL);
+            this.Controls.Add(this.MinimumWeightTB);
             this.Controls.Add(this.AddContainerBTN);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AmountOfContainerLBL);
             this.Controls.Add(this.ValuebleCB);
             this.Controls.Add(this.CooledCB);
             this.Controls.Add(this.AmountOfContainersNUM);
@@ -213,9 +255,13 @@
         private System.Windows.Forms.NumericUpDown AmountOfContainersNUM;
         private System.Windows.Forms.CheckBox CooledCB;
         private System.Windows.Forms.CheckBox ValuebleCB;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label AmountOfContainerLBL;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button AddContainerBTN;
+        private System.Windows.Forms.TextBox MinimumWeightTB;
+        private System.Windows.Forms.Label MinWeightLBL;
+        private System.Windows.Forms.TextBox CurrentWeightTB;
+        private System.Windows.Forms.Label CurrentWeightLBL;
     }
 }
 

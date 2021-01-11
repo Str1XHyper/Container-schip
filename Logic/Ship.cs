@@ -14,6 +14,7 @@ namespace Logic
         private List<Container> containers; 
         public IReadOnlyCollection<Container> Containers { get { return containers; } }
         public Row[] Rows { get; private set; }
+        public int WeightOfAllContainers { get { return CalculateWeight(); } }
 
         private float WeightDifference { get { return CalculateWeightDifference(); } }
         private int WeightLeft;
@@ -35,6 +36,14 @@ namespace Logic
             this.containers.AddRange(containers);
         }
 
+        public void ChangeShipSize(int Length, int Width)
+        {
+            this.Length = Length;
+            this.Width = Width;
+            this.MaxWeight = (Length * Width) * 150;
+            this.MinWeight = MaxWeight / 2;
+        }
+
         public void DistributeContainers()
         {
             Rows = InitializeRows().ToArray();
@@ -42,18 +51,26 @@ namespace Logic
             var sortedContainers = containers.OrderByDescending(C => C.ContainerType).ThenByDescending(C => C.Weight).ToList();
             foreach (Container container in sortedContainers)
             {
-                if (AddContainerLeftOrRight(container))
+                var LeftRightResult = AddContainerLeftOrRight(container);
+                if (!LeftRightResult)
                 {
-                }else
-                {
-                    if (AddContainerCenter(container))
+                    if (Rows.Length % 2 != 0)
                     {
+                        var CenterResult = AddContainerCenter(container);
+                        if (!CenterResult)
+                        {
+                            throw new Exception("Couldn't place container!");
+                        }
                     }
                 }
             }
-            if(WeightDifference < 20)
+            if (TotalWeight < MinWeight)
             {
-                Console.WriteLine("Success");
+                throw new Exception("There are not enough containers on the ship!");
+            }
+            if (WeightDifference > 20)
+            {
+                throw new Exception("Weight difference is too big!");
             }
         }
 
@@ -72,7 +89,7 @@ namespace Logic
                             return true;
                         }
                     }
-                } else if(WeightLeft >= WeightRight)
+                } else
                 {
 
                     if (Rows[i].Side == Row.RowSide.Right)
@@ -157,5 +174,15 @@ namespace Logic
             }
             return tempRows;
         }
+        private int CalculateWeight()
+        {
+            int Weight = 0;
+            foreach (Container container in containers)
+            {
+                Weight += container.Weight;
+            }
+            return Weight;
+        }
+
     }
 }
