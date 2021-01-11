@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -97,13 +98,55 @@ namespace ContainerSchup
             #endregion
         }
 
-        public ViewShip(Ship ship, List<Container> Containers)
+        public ViewShip(Ship ship)
         {
             InitializeComponent();
             this.ship = ship;
-            this.Containers = Containers;
             InitializeVariables();
             InitializeView(ship.Length, ship.Width);
+            ship.DistributeContainers();
+            OpenVisualizer();
+        }
+
+        private void OpenVisualizer()
+        {
+            string stack = "";
+            string weight = "";
+            for (int z = 0; z < ship.Rows.Length; z++)
+            {
+                //Length / Depth
+                if (z > 0)
+                {
+                    stack += '/';
+                    weight += '/';
+                }
+
+
+                for (int x = 0; x < ship.Rows[z].Stacks.Count; x++)
+                {
+                    //Width 
+                    if (x > 0)
+                    {
+                        stack += ",";
+                        weight += ",";
+                    }
+
+                    for (int y = 0; y < ship.Rows[z].Stacks[x].Containers.Count; y++)
+                    {
+                        Container container = ship.Rows[z].Stacks[x].Containers[y];
+
+                        //Height
+                        stack += Convert.ToString((int)container.ContainerType);
+                        weight += Convert.ToString(container.Weight);
+                        if (y < (ship.Rows[z].Stacks[x].Containers.Count - 1))
+                        {
+                            weight += "-";
+                        }
+
+                    }
+                }
+            }
+            Process.Start($"https://i872272core.venus.fhict.nl/ContainerVisualizer/index.html?length=" + ship.Length + "&width=" + ship.Width + "&stacks=" + stack + "&weights=" + weight + "");
         }
 
         private void InitializeView(int length, int width)

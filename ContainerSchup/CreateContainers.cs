@@ -25,20 +25,21 @@ namespace ContainerSchup
 
             for(int i = 0; i< NormalNUM.Value; i++)
             {
-                containers.Add(new Container(ContainerType.Normal, 30));
+                containers.Add(new Container(ContainerType.Normal));
             }
 
             for (int i = 0; i < CooledNUM.Value; i++)
             {
-                containers.Add(new Container(ContainerType.Cooled, 30));
+                containers.Add(new Container(ContainerType.Cooled));
             }
 
             for (int i = 0; i < ValuebleNUM.Value; i++)
             {
-                containers.Add(new Container(ContainerType.Valueble, 30));
+                containers.Add(new Container(ContainerType.Valueble));
             }
+            ship.AddContainers(containers);
 
-            Form ViewShip = new ViewShip(ship, containers);
+            Form ViewShip = new ViewShip(ship);
             ViewShip.Show();
             ViewShip.FormClosed += new FormClosedEventHandler(ViewShipClosed);
             this.Hide();

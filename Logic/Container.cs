@@ -6,9 +6,10 @@ namespace Logic
 {
     public enum ContainerType
     {
-        Normal = 0,
-        Valueble = 1,
-        Cooled = 2,
+        Normal = 1,
+        Valueble = 2,
+        Cooled = 3,
+        CooledValueble = 4,
     }
 
     public class Container
@@ -16,19 +17,11 @@ namespace Logic
         public int Weight { get; private set; }
         public ContainerType ContainerType { get; private set; }
 
-        public Container(ContainerType type, int Weight)
+        public Container(ContainerType type)
         {
-            if(Weight < 4)
-            {
-                Weight = 4;
-            } 
-            else if (Weight > 120)
-            {
-                Weight = 120;
-            }
 
             ContainerType = type;
-            this.Weight = Weight;
+            this.Weight = 30;
         }
     }
 }

@@ -43,6 +43,11 @@
             // NormalNUM
             // 
             this.NormalNUM.Location = new System.Drawing.Point(15, 25);
+            this.NormalNUM.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.NormalNUM.Name = "NormalNUM";
             this.NormalNUM.Size = new System.Drawing.Size(155, 20);
             this.NormalNUM.TabIndex = 0;
@@ -68,6 +73,11 @@
             // ValuebleNUM
             // 
             this.ValuebleNUM.Location = new System.Drawing.Point(15, 64);
+            this.ValuebleNUM.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.ValuebleNUM.Name = "ValuebleNUM";
             this.ValuebleNUM.Size = new System.Drawing.Size(155, 20);
             this.ValuebleNUM.TabIndex = 2;
@@ -84,6 +94,11 @@
             // CooledNUM
             // 
             this.CooledNUM.Location = new System.Drawing.Point(15, 103);
+            this.CooledNUM.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.CooledNUM.Name = "CooledNUM";
             this.CooledNUM.Size = new System.Drawing.Size(155, 20);
             this.CooledNUM.TabIndex = 4;
