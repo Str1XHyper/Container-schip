@@ -45,7 +45,7 @@ namespace Logic
 
         public void PlaceContainers()
         {
-            Rows = InitializeRows().ToArray();
+            Rows = InitializeRows();
             SortContainers();
             foreach(Container container in containersToPlace)
             {
@@ -120,7 +120,7 @@ namespace Logic
             }
             return difference;
         }
-        private List<Row> InitializeRows()
+        private Row[] InitializeRows()
         {
             List<Row> tempRows = new List<Row>();
 
@@ -158,7 +158,7 @@ namespace Logic
                     tempRows.Add(new Row((RowSide)side, i, Length));
                 }
             }
-            return tempRows;
+            return tempRows.ToArray();
         }
     }
 }
