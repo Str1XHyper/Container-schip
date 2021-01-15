@@ -150,6 +150,7 @@ namespace ContainerShipTests
             "Couldn't place all containers")]
         public void PlaceContainers_TooManyCooledValuebleContainers()
         {
+            //Arrange
             Ship ship = new Ship(1, 1);
             List<Container> containers = new List<Container>()
             {
@@ -160,6 +161,25 @@ namespace ContainerShipTests
 
             //Act
             ship.PlaceContainers();
+        }
+
+        [TestMethod]
+        public void CorrectShipMaxWeight()
+        {
+            //Act
+            Ship ship = new Ship(1, 1);
+
+            //Assert
+            Assert.AreEqual(150, ship.MaxWeight);
+        }
+        [TestMethod]
+        public void CorrectShipMinWeight()
+        {
+            //Act
+            Ship ship = new Ship(1, 1);
+
+            //Assert
+            Assert.AreEqual(75, ship.MinWeight);
         }
     }
 }
