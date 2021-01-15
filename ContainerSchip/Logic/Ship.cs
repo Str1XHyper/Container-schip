@@ -22,6 +22,10 @@ namespace Logic
         
         public Ship(int length, int width)
         {
+            if(length < 1 || width < 1)
+            {
+                throw new Exception("Ship size can't be less then 1");
+            }
             Length = length;
             Width = width;
             Rows = new Row[width];
@@ -39,6 +43,10 @@ namespace Logic
 
         public void ChangeSize(int length, int width)
         {
+            if (length < 1 || width < 1)
+            {
+                throw new Exception("Ship size can't be less then 1");
+            }
             Length = length;
             Width = width;
         }
@@ -99,6 +107,10 @@ namespace Logic
 
         private RowSide CheckWhereToPlace()
         {
+            if(Rows.Length == 1)
+            {
+                return RowSide.Center;
+            }
             if(WeightLeft <= WeightRight)
             {
                 return RowSide.Left;

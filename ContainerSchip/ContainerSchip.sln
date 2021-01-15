@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerSchip", "ContainerSchip\ContainerSchip.csproj", "{CD21477E-DE14-4C51-853B-5494FEAB8359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{D84BCCA4-7591-4441-8E57-AE56887AC87B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{D84BCCA4-7591-4441-8E57-AE56887AC87B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerShipTests", "ContainerShipTests\ContainerShipTests.csproj", "{57DF99B9-C303-41F9-9AB7-91B158AEE523}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D84BCCA4-7591-4441-8E57-AE56887AC87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D84BCCA4-7591-4441-8E57-AE56887AC87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D84BCCA4-7591-4441-8E57-AE56887AC87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57DF99B9-C303-41F9-9AB7-91B158AEE523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57DF99B9-C303-41F9-9AB7-91B158AEE523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57DF99B9-C303-41F9-9AB7-91B158AEE523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57DF99B9-C303-41F9-9AB7-91B158AEE523}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
